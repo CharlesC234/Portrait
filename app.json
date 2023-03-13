@@ -1,0 +1,19 @@
+{
+  "name": "portraitb",
+  "displayName": "portraitb",
+  "icon": "./assets/PortraitLogo.png",
+    "splash": {
+      "image": "./assets/PortraitLogo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/PortraitLogo.png",
+        "backgroundColor": "#000000"
+      }
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#000000"
+    }
+}

@@ -1,0 +1,1124 @@
+
+
+//Post with text input centered at bottom 
+
+
+<View style={{height: 5}}/>
+      <View style={{flexDirection: 'row', bottom: 1, left: 135, height: 16, width: '96%'}}>
+      <View style={{flexDirection: 'row', width: '75%'}}>
+      <View
+                style={{width: 225, fontSize: 10, borderWidth: 1, borderColor: '#ffffff', opacity: .4, borderRadius: 15, top: 7.5, right: 40, height: 19}}
+              />
+      </View>
+      </View>
+
+      </View>
+      </TouchableOpacity>
+      <View style={{height: 2.5, backgroundColor: 'transparent'}}/>
+      <View style={{height: 1.25, backgroundColor: '#ffffff', width: '95%', opacity: .20, top: 0, right: 0, borderRadius: 5}}/>
+
+
+      </View>
+
+
+      //centered like, comment, dislikes
+
+      <View style={{height: 2.5}}/>
+      <View style={{flexDirection: 'row', bottom: 1, left: 5, height: 16, width: '96%', alignContent: 'center', justifyContent: 'center'}}>
+      <View style={{flexDirection: 'row', width: '80%'}}>
+      <View style={{width: '33%', flexDirection: 'row', left: 5}}>
+      <Image style={{width: 60, height: 60, left: 25, bottom: 13, tintColor: '#ffffff', opacity: .60}}source={require('../../assets/ThumbsUp.png')}/>
+      <Text style={{top: 8, left: 8, fontSize: 12.5,color: '#ffffff', opacity: .60}}>{props.likes}</Text>
+      </View>
+      <View style={{width: '33%', flexDirection: 'row'}}>
+      <Image style={{width: 138.5, height: 40, right: 17, bottom: 2.5, tintColor: '#ffffff', opacity: .60}}source={require('../../assets/ChatIcon.png')}/>
+      <Text style={{top: 8, right: 74, fontSize: 12.5,color: '#ffffff', opacity: .60}}>{props.comments}</Text>
+      </View>
+      <View style={{width: '33%', flexDirection: 'row'}}>
+      <Image style={{width: 60, height: 60, left: 15, bottom: 12.5, tintColor: '#ffffff', opacity: .60}}source={require('../../assets/ThumbsDown.png')}/>
+      <Text style={{top: 8, right: 2, fontSize: 12.5,color: '#ffffff', opacity: .60}}>{props.dislikes}</Text>
+      </View>
+      </View>
+      </View>
+
+      </View>
+      </TouchableOpacity>
+      <View style={{height: 0, backgroundColor: 'transparent'}}/>
+      <View style={{height: 1.25, backgroundColor: '#ffffff', width: '95%', opacity: .175, top: 0, right: 0, borderRadius: 5}}/>
+
+
+      </View>
+
+
+
+      // Bottom bar, like, dislike, ect
+
+      <View style={{flexDirection: 'row', top: 2.5, right: 40, height: 25, width: '108.5%', justifyContent: 'space-between'}}>
+      <View style={{flexDirection: 'row', width: '37.5%', opacity: .55, right: 3}}>
+      <View style={{width: '33%', flexDirection: 'row', left: 5}}>
+      <Image style={{width: 57.5, height: 57.5, left: 25, bottom: 13, tintColor: '#ffffff'}}source={require('../../assets/ThumbsUp.png')}/>
+      </View>
+      <View style={{width: '33%', flexDirection: 'row'}}>
+      <Image style={{width: 132.5, height: 40, right: 22.5, bottom: 3.5, tintColor: '#ffffff'}}source={require('../../assets/ChatIcon.png')}/>
+      </View>
+      <View style={{flexDirection: 'row', left: 17.5, justifyContent: 'space-between', width: '40%'}}>
+        <Image style={{width: 27.5, height: 30, left: 0, top: 1.5, tintColor: '#ffffff'}}source={require('../../assets/SharePage.png')}/>
+        <Image style={{width: 27.5, height: 25, left: 0, top: 3, tintColor: '#ffffff'}}source={require('../../assets/Save.png')}/>
+      </View>
+      </View>
+      <Text style={{fontSize: 13, opacity: .45, color: '#ffffff', left: 0, top: 7}}>{props.timeSince}</Text>
+      </View>
+
+
+
+
+      // main header 
+
+
+      const RenderItem = ({item}) => {
+  if(item == '1'){
+    return(
+    <View>
+    <View style={{flexDirection: 'row', top: 35 , right: 0, zIndex: 2, height: 25, flex: 1, backgroundColor: '#000000', justifyContent: 'space-between', alignSelf: 'center', width: '100%', position: 'absolute'}}>
+    <TouchableOpacity style={{width: 50, height: 50, right: 2.5, bottom: 9, alignItems: 'center', zIndex: 3, elevation: 3}} onPress={()=>navigation.navigate('Notifications')}>
+    <Image style={{width: 330, height: 330, right: 0, bottom: 137.5, tintColor: '#ff7597'}}source={require('../assets/NotificationIcon.png')}/>
+    <View style={{height: 7, width: 7, backgroundColor: '#000000', borderRadius: 10, right: 25, bottom: 327.5}}/>
+    </TouchableOpacity>
+    <Image style={{width: 250, height: 80, right: 0, bottom: 23.5}}source={require('../assets/PortraitNameOutline6.png')}/>
+    <TouchableOpacity style={{width: 50, height: 50, bottom: 8, left: 5, alignItems: 'center'}} onPress={()=>navigation.navigate('Chats')}>
+    <Image style={{width: 220, height: 220, right: 2.5, bottom: 84, tintColor: '#79e2f2'}}source={require('../assets/ChatIcon.png')}/>
+    <View style={{height: 7, width: 7, backgroundColor: '#79e2f2', borderRadius: 10, left: 15, bottom: 225, opacity: 0}}/>
+    </TouchableOpacity>
+    </View>
+    <View style={{height: 0}}/>
+    </View>
+    )
+  }else if(item == '2'){
+    return(
+      <View>
+    <View style={{height: 67.5}}/>
+  
+      <View style={{height: 7.5, backgroundColor: 'transparent'}}/>
+      <View style={{height: .75, backgroundColor: '#ffffff', width: '100%', opacity: .175, top: 2, right: 0, borderRadius: 0}}/>
+      <View style={{height: 5}}/>
+      </View>
+    )
+  }else{
+  return(
+  <Post portraitColor= {item.portraitColor} portraitColorRGBA={item.portraitColorRGBA} portraitName={item.portraitName} portraitImagePath= {item.portraitImagePath} 
+      userColor={item.userColor} Anonymous={item.Anonymous} hasText={item.hasText} userName={item.userName} userImagePath= {item.userImagePath} timeSince={item.timeSince} 
+      postTextContent={item.postTextContent} file={item.file} PostFilePath={item.PostFilePath} likes={item.likes} dislikes={item.dislikes} comments={item.comments}/>
+  )
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Algorithm with limits for remainder
+
+
+const GalleryView = (dimension) => {
+  var min = 100;
+  var max = 550;
+  var keepGoing = 1;
+  var widthNew = 0;
+  var heightNew = 0;
+  var remainderHeight = 0;
+  var remainderWidth = 0;
+  var flexdir;
+  var wiggleRoomWidth = dimension.width - (min * 2);
+  var wiggleRoomHeight = dimension.height - (min * 2);
+  //decide weather to exit or keep iterating
+  if(dimension.width <= max/2 && dimension.height <= max){
+    keepGoing = Math.floor(Math.random() * 2);
+  }
+  if(keepGoing == 1){  
+  //if one axis is locked (no more boxes can be created) but other is not
+  //calculate which axis is being split
+  if(wiggleRoomHeight < 0 && wiggleRoomWidth >= 0){
+    //calculate multiplier for box width/height
+    while(widthNew = 0){
+      widthNew = Math.floor(Math.random() * wiggleRoomWidth);
+      }
+      widthNew += min;
+      heightNew = dimension.height;
+      remainderWidth = dimension.width - widthNew;
+      remainderHeight = dimension.height;
+      flexdir = 'row';
+
+  }else if(wiggleRoomHeight >= 0 && wiggleRoomWidth < 0){
+      widthNew = dimension.width;
+      while(heightNew = 0){
+        heightNew = Math.floor(Math.random() * wiggleRoomHeight);
+        }
+        heightNew += min;
+      remainderWidth = dimension.width;
+      remainderHeight = dimension.height - heightNew;
+      flexdir = 'column'; 
+
+  }else if(wiggleRoomHeight < 0 && wiggleRoomWidth < 0){
+    //if both axis are locked
+    return <View/>
+  }else{
+    //if both axis are open for more boxes make descision, x or y axis
+  var axis = Math.floor(Math.random() * 2);
+  if(axis == 1){
+     widthNew = dimension.width;
+      while(heightNew = 0){
+        heightNew = Math.floor(Math.random() * wiggleRoomHeight);
+        }
+        heightNew += min;
+      remainderWidth = dimension.width;
+      remainderHeight = dimension.height - heightNew;
+      flexdir = 'column'; 
+  }else{
+    while(widthNew = 0){
+      widthNew = Math.floor(Math.random() * wiggleRoomWidth);
+      }
+      widthNew += min;
+      heightNew = dimension.height;
+      remainderWidth = dimension.width - widthNew;
+      remainderHeight = dimension.height;
+      flexdir = 'row';
+  }
+  }
+  console.log('Width: ' + widthNew);
+  console.log('Height: ' + heightNew);
+  //main return statement
+  return <View style={{flexDirection: flexdir}}>
+  <View style={{borderWidth: 2, borderColor: '#ffffff', width: widthNew, height: heightNew}}>
+  <GalleryView width={widthNew} height={heightNew}/>
+  </View>
+
+  <View style={{borderWidth: 2, borderColor: '#ffffff', width: remainderWidth, height: remainderHeight}}>
+  <GalleryView width={remainderWidth} height={remainderHeight}/>
+  </View>
+  </View>
+  }else{
+    return <View/>
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//algorithm completly random 
+
+
+
+//Every square has to be less than 125 on both axis for program to quit, need to fix by adding random exit from descion or 
+//specific aspect ratios wanted.
+
+//Boxes are able to be smaller than min.
+const GalleryView = (dimension) => {
+  var min = 150;
+  var max = 250;
+  var coefficent = 0;
+  var keepGoing = 1;
+
+  //decide weather to exit or keep iterating
+  if(dimension.width <= max && dimension.height <= max){
+    keepGoing = Math.floor(Math.random() * 2);
+  }
+  if(keepGoing == 1){
+  //calculate multiplier for box width/height
+  while(coefficent < .3 || coefficent > .7){
+  coefficent = Math.random();
+  }
+  console.log('co: ' + coefficent);
+  //calculate which axis is being split
+  if(dimension.height*coefficent < min && dimension.width*coefficent >= min){
+    var widthNew = dimension.width*coefficent;
+    var heightNew = dimension.height;
+    var remainderWidth = dimension.width - widthNew;
+    var remainderHeight = dimension.height;
+    var flexdir = 'row';
+  }else if(dimension.height*coefficent >= min && dimension.width*coefficent < min){
+    var widthNew = dimension.width;
+    var heightNew = dimension.height*coefficent;
+    var remainderWidth = dimension.width;
+    var remainderHeight = dimension.height - heightNew;
+    var flexdir = 'column'; 
+  }else if(dimension.height*coefficent <= min && dimension.width*coefficent <= min){
+    return <View/>
+  }else{
+  var axis = Math.floor(Math.random() * 2);
+  if(axis == 1){
+    var widthNew = dimension.width;
+    var heightNew = dimension.height*coefficent;
+    var remainderWidth = dimension.width;
+    var remainderHeight = dimension.height - heightNew;
+    var flexdir = 'column';
+  }else{
+    var widthNew = dimension.width*coefficent;
+    var heightNew = dimension.height;
+    var remainderWidth = dimension.width - widthNew;
+    var remainderHeight = dimension.height;
+    var flexdir = 'row';
+  }
+  }
+  console.log('Width: ' + widthNew);
+  console.log('Height: ' + heightNew);
+  //main return statement
+  return <View style={{flexDirection: flexdir}}>
+  <View style={{borderWidth: 2, borderColor: '#ffffff', width: widthNew, height: heightNew}}>
+  <GalleryView width={widthNew} height={heightNew}/>
+  </View>
+
+  <View style={{borderWidth: 2, borderColor: '#ffffff', width: remainderWidth, height: remainderHeight}}>
+  <GalleryView width={remainderWidth} height={remainderHeight}/>
+  </View>
+  </View>
+  }else{
+    return <View/>
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//algorithm with aspect ratio for each image ( blank space )
+
+
+
+
+const GalleryView = (dimension) => {
+  var min = 125;
+  var max = 135;
+  var coefficent = 0;
+  var keepGoing = 1;
+  var axis = dimension.axis
+  var axisAfter = 2;
+
+  function choosePic(){
+    switch(Math.floor(Math.random()* 9)) {
+      case 0:
+        return require('../assets/uzivert.jpg');
+      case 1:
+        return require('../assets/9.jpg');
+      case 2:
+        return require('../assets/6.jpg');
+      case 3:
+        return require('../assets/10.jpg');
+      case 4:
+        return require('../assets/me1.jpg');
+      case 5:
+        return require('../assets/me2.jpg');
+      case 6:
+        return require('../assets/PortraitLogo.png');
+      case 7:
+        return require('../assets/PortraitLogo1.png');
+      case 8:
+        return require('../assets/me3.jpg');
+    }
+  }
+  function chooseColor(){
+    var yellow = '#ffe380';
+    var darkGreen = '#57d9a3';
+    var red = '#ff7597';
+    var purple = '#bb86fc';
+    var pink = '#f686fc';
+    var blue = '#79e2f2';
+    var orange = '#ffb580';
+    var teal = '#75ffe1';
+    switch(Math.floor(Math.random()* 8)) {
+      case 0:
+        return yellow;
+      case 1:
+        return darkGreen;
+      case 2:
+        return red;
+      case 3:
+        return purple;
+      case 4:
+        return pink;
+      case 5:
+        return blue;
+      case 6:
+        return orange;
+      case 7:
+        return teal;
+    }
+  }
+  var color = chooseColor();
+
+  const getImageDimensionsHeight = (FilePath, Width) => {
+    console.log("Path: " + Image.resolveAssetSource(FilePath));
+    console.log("Width: " + Width);
+    const {width, height} = Image.resolveAssetSource(FilePath);
+    const picWidth = (Width);
+    const picHeight = ((height * picWidth) / (width));
+    return(picHeight);
+  }
+  const getImageDimensionsWidth = (FilePath, Height) => {
+    console.log("Path: " + Image.resolveAssetSource(FilePath));
+    console.log("Height: " + Height);
+    const {width, height} = Image.resolveAssetSource(FilePath);
+    const picHeight = (Height);
+    const picWidth = ((width * picHeight) / (height));
+    return(picWidth);
+  }
+
+  if(axis == 1 || axis == 0){
+    axisAfter = axis;
+  }else{
+    axisAfter = 1;
+  }
+
+  //decide weather to exit or keep iterating
+  if(dimension.width <= max && dimension.height <= max){
+    keepGoing = Math.floor(Math.random() * 3);
+  }
+  if(keepGoing <= 2){
+  console.log('co: ' + coefficent);
+  //calculate which axis is being split
+  if(axisAfter == 1 && dimension.height/2.25 <= min ){
+
+    var image = choosePic();
+    var imgHeight = getImageDimensionsHeight(image, dimension.width - 19.5);
+    var imgWidth = getImageDimensionsWidth(image, dimension.height - 19.5);
+
+    if(imgWidth > dimension.width){
+    return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center', top: ((dimension.height - 19.5) - imgHeight) / 2,
+     width: dimension.width - 19.5, height: imgHeight, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }else{
+      return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center',
+     width: imgWidth, height: dimension.height - 19.5, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }
+
+  }else if(axisAfter == 0 && dimension.width/2.25 <= min){
+    
+    var image = choosePic();
+    var imgHeight = getImageDimensionsHeight(image, dimension.width - 19.5);
+    var imgWidth = getImageDimensionsWidth(image, dimension.height - 19.5);
+    
+    if(imgWidth > dimension.width){
+    return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center', top: ((dimension.height - 19.5) - imgHeight) / 2,
+     width: dimension.width - 19.5, height: imgHeight, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }else{
+      return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center',
+     width: imgWidth, height: dimension.height - 19.5, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }
+
+  }else{
+
+  if(axisAfter == 1){
+    var heightNew = 0;
+    var widthNew = dimension.width;
+    var remainderHeight = 0;
+    var counter = 0;
+    while((heightNew > widthNew * 2 || heightNew < widthNew * .5) || (remainderHeight > widthNew * 2 || remainderHeight < widthNew * .5)){
+    heightNew = min + Math.floor(Math.random() * (dimension.height - 2*min));
+    remainderHeight = dimension.height - heightNew;
+    counter++
+    if(dimension.height > max && counter > 20){
+      heightNew = min + Math.floor(Math.random() * (dimension.height - 2*min));
+      remainderHeight = dimension.height - heightNew;
+      break;
+    }
+    }
+    var remainderWidth = dimension.width;
+    var flexdir = 'column';
+
+  }else if(axisAfter == 0){
+
+    var heightNew = dimension.height;
+    var widthNew = 0;
+    var remainderWidth = 0;
+    var counter = 0;
+    while((widthNew > heightNew * 2 || widthNew < heightNew * .5) || (remainderWidth > heightNew * 2 || remainderWidth < heightNew * .5)){
+      widthNew = min + Math.floor(Math.random() * (dimension.width - 2*min));
+      remainderWidth = dimension.width - widthNew;
+      counter++;
+      if(dimension.width > max && counter > 20){
+        widthNew = min + Math.floor(Math.random() * (dimension.width - 2*min));
+        remainderWidth = dimension.width - widthNew;
+        break;
+      }
+    }
+    var remainderHeight = dimension.height;
+    var flexdir = 'row';
+  }
+  }
+  console.log('Width: ' + widthNew);
+  console.log('Height: ' + heightNew);
+  //main return statement
+  return <View style={{flexDirection: flexdir}}>
+  <View style={{width: widthNew, height: heightNew}}>
+  <GalleryView width={widthNew} height={heightNew} axis={[axisAfter == 0 ? 1 : 0]}/>
+  </View>
+
+  <View style={{width: remainderWidth, height: remainderHeight}}>
+  <GalleryView width={remainderWidth} height={remainderHeight} axis={[axisAfter == 0 ? 1 : 0]}/>
+  </View>
+  </View>
+  }else{
+    
+    var image = choosePic();
+    var imgHeight = getImageDimensionsHeight(image, dimension.width - 19.5);
+    var imgWidth = getImageDimensionsWidth(image, dimension.height - 19.5);
+    
+    if(imgWidth > dimension.width){
+    return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center', top: ((dimension.height - 19.5) - imgHeight) / 2,
+     width: dimension.width - 19.5, height: imgHeight, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }else{
+      return <View style={{alignSelf: 'center', borderRadius: 25, borderWidth: 3.5, 
+    borderColor: color, width: dimension.width - 12.5, height: dimension.height - 12.5, top: 5, backgroundColor: '#000000', alignItems: 'center', position: 'absolute'}}>
+    <Image style={{alignSelf: 'center',
+     width: imgWidth, height: dimension.height - 19.5, resizeMode: 'cover'}}
+      source={image}
+    />
+    </View>
+    }
+
+  }
+}
+
+
+
+color codes (white overlay added .4 op)
+switch(Math.floor(Math.random()* 7)) {
+      case 0:
+        //yellow
+        return '#ffef00';
+      case 1:
+        //green
+        return '#00ff19';
+      case 2:
+        //teal
+        return '#00ffa9';
+      case 3:
+        //purple
+        return '#c200ff';
+      case 4:
+        //pink
+        return '#ff00b6';
+      case 5: 
+        //dark blue
+        return '#4600ff'
+      case 6:
+        //red
+        return '#ff0000'
+    }
+
+
+
+
+
+    color codes cashapp
+
+    switch(Math.floor(Math.random()* 9)) {
+      case 0:
+        //blue
+        return '#00ccf5';
+      case 1:
+        //dark blue
+        return '#3562ff';
+      case 2:
+        //teal
+        return '#38eabe';
+      case 3:
+        //pink
+        return '#fb56c0';
+      case 4:
+        //yellow
+        return '#fad833';
+      case 5: 
+        //purple
+        return '#ad37ff';
+      case 6:
+        //orange
+        return '#f3672e';
+      case 7:
+        //red
+        return '#ff4040';
+      case 8:
+        //green
+        return '#00d64f'
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Algortihm for even splits (not finished yet)
+
+
+
+
+   //Gallery Algorithm for random boxes to fill screen (semi-random ofc)
+    const GalleryView = (dimension) => {
+      //maxes and mins for boxes 
+      var min = Dimensions.get('window').width/3;
+      var max = Dimensions.get('window').width/2.5;
+      //variable for determining if program will continue down recursive path (if allowed to quit) 2:1 chance of qutting
+      var keepGoing = 1;
+      var axis = dimension.axis
+      var axisAfter = 2;
+    
+      //random functions
+      //choose pic (for debugging)
+      function choosePic(){
+        switch(Math.floor(Math.random()* 7)) {
+          case 0:
+            return require('../assets/uzivert.jpg');
+          case 1:
+            return require('../assets/9.jpg');
+          case 2:
+            return require('../assets/6.jpg');
+          case 3:
+            return require('../assets/10.jpg');
+          case 4:
+            return require('../assets/me1.jpg');
+          case 5:
+            return require('../assets/me2.jpg');
+          case 6:
+            return require('../assets/me3.jpg');
+        }
+      }
+      //set image variable to random pic so constant thru function
+      var image = choosePic();
+      //random function for choosing border colors
+      function chooseColor(){
+        switch(Math.floor(Math.random()* 9)) {
+          case 0:
+            //blue
+            return '#00ccf5';
+          case 1:
+            //dark blue
+            return '#3562ff';
+          case 2:
+            //teal
+            return '#38eabe';
+          case 3:
+            //pink
+            return '#fb56c0';
+          case 4:
+            //yellow
+            return '#fad833';
+          case 5: 
+            //purple
+            return '#ad37ff';
+          case 6:
+            //orange
+            return '#f3672e';
+          case 7:
+            //red
+            return '#ff4040';
+          case 8:
+            //green
+            return '#00d64f'
+        }
+      }
+    
+      //if not first run of function set axis of change to axis passed as param
+      if(axis == 1 || axis == 0){
+        axisAfter = axis;
+        if(axisAfter == 0){
+          if(dimension.flag == 1){
+            var heightCurrent = min + Math.floor(Math.random() * (dimension.height - 2*min));
+            var heightRemainderCurrent = dimension.height - heightCurrent;
+            var widthCurrent = dimension.width;
+            var widthRemainderCurrent = dimension.width;
+          }else{
+          var heightCurrent = dimension.heightCurrent;
+          var widthCurrent = dimension.widthCurrent;
+          var heightRemainderCurrent = dimension.height - heightCurrent;
+          var widthRemainderCurrent = widthCurrent;
+          }
+          var flexdir = 'column';
+        }else if(axisAfter == 1){
+          if(dimension.flag == 1){
+            widthCurrent = min + Math.floor(Math.random() * (dimension.width - 2*min));
+            var widthRemainderCurrent = dimension.width - widthCurrent;
+            heightCurrent = dimension.height;
+            var heightRemainderCurrent = dimension.height;
+          }else{
+          var heightCurrent = dimension.heightCurrent;
+          var widthCurrent = dimension.widthCurrent;
+          var widthRemainderCurrent = dimension.width - widthCurrent;
+          var heightRemainderCurrent = heightCurrent;
+          }
+          var flexdir = 'row';
+        }
+      }else{
+        axisAfter = 0;
+        var heightCurrent = min + Math.floor(Math.random() * (dimension.height - 2*min));
+        var heightRemainderCurrent = dimension.height - heightCurrent;
+        var widthCurrent = dimension.width;
+        var widthRemainderCurrent = dimension.width;
+        var flexdir = 'column';
+      }
+    
+     const FinalBox = () =>{
+    var thisColor = chooseColor();
+    return <View style={{width: dimension.width - 10, height: dimension.height - 10, top: 5, alignContent: 'center', alignItems: 'center'}}>
+    <View style={{borderRadius: 3, borderWidth: 3.75, opacity: 1, opacity: .95,
+        borderColor: thisColor, width: dimension.width - 3.5, height: dimension.height - 3.5, 
+        alignItems: 'center', position: 'absolute'}}/>
+        <View style={{borderRadius: 2, borderWidth: 2.5, opacity: 1, bottom: 1, opacity: .95,
+        borderColor: thisColor, width: dimension.width - 9, height: dimension.height - 9, top: 3, 
+        alignItems: 'center', position: 'absolute'}}/>
+        <View style={{borderRadius: 15, borderWidth: 4.5, borderColor: thisColor,
+            width: dimension.width - 3.5, height: dimension.height - 3.5, opacity: .95,
+            alignItems: 'center', position: 'absolute', backgroundColor: '#000000'}}/>
+    <Image style={{width: dimension.width - 21, height: dimension.height - 21, borderRadius: 7.5, opacity: .95,
+      resizeMode: 'cover', position: 'absolute', top: 9, alignSelf: 'center', left: 5.5}}
+      source={image}
+    />
+    </View>
+    <View style={{height: 10, width: 10}}/>
+    <View style={{width: widthRemainderCurrent - 10, height: heightRemainderCurrent - 10, top: 5, alignContent: 'center', alignItems: 'center'}}>
+    <View style={{borderRadius: 4, borderWidth: 4, opacity: 1,
+        borderColor: thisColor, width: widthRemainderCurrent - 4, height: heightRemainderCurrent  - 4, 
+        alignItems: 'center', position: 'absolute'}}/>
+        <View style={{borderRadius: 13.5, borderWidth: 4, borderColor: thisColor,
+            width: widthRemainderCurrent - 4, height: heightRemainderCurrent   - 4,
+            alignItems: 'center', position: 'absolute', backgroundColor: '#000000'}}/>
+    <Image style={{width: widthRemainderCurrent - 21.5, height: heightRemainderCurrent - 21.5, borderRadius: 7, opacity: .8,
+      resizeMode: 'cover', position: 'absolute', top: 9}}
+      source={image}
+    />
+    </View>
+    </View>
+  }
+    
+      //decide weather to exit or keep iterating
+      //must have good aspect ratio and be less than max size on both axis to exit recursion
+      if(widthCurrent <= max && heightCurrent <= max && 
+        heightCurrent < widthCurrent * 1.5 && heightCurrent > widthCurrent * .8 &&
+        widthCurrent < heightCurrent * 1.25 && widthCurrent > heightCurrent * .66){
+        //decide weather to keep going or not with random function, 2:1 chance of exiting
+        keepGoing = Math.floor(Math.random() * 3);
+      }
+    
+      //if splitting box will result in box less than min exit (only if both axis will be less than min)
+      if(widthCurrent/2.25 <= min && heightCurrent/2 <= min){
+        return <FinalBox/>
+      }
+    
+      //if decided to keep iterating
+      if(keepGoing <= 1){
+        //if splitting this axis in half will result in two boxes less than minimum on this axis (height)
+      if(axisAfter == 1 && heightCurrent/2 <= min){
+        //try splitting box on other axis if aspect ratio not ready to exit recursion (ar must be good for final boxes)
+        if((heightCurrent > widthCurrent * 1.5 || heightCurrent < widthCurrent * .8) || 
+        (widthCurrent > heightCurrent * 1.25 || widthCurrent < heightCurrent * .66)){
+          return <GalleryView width={widthCurrent} height={heightCurrent} axis={0} flag={1}/>
+        }else{
+          //if aspect ratio is good for exit, then exit
+          return <FinalBox/>
+        }
+        
+        //if splitting axis in half will result in two boxes less than minimunm on this axis (width)
+      }else if(axisAfter == 0 && widthCurrent/2.25 <= min){
+        //try splitting box on other axis if aspect ratio not ready to exit recursion (ar must be good for final boxes)
+        if((heightCurrent > widthCurrent * 1.5 || heightCurrent < widthCurrent * .8) || 
+        (widthCurrent > heightCurrent * 1.25 || widthCurrent < heightCurrent * .66)){
+          return <GalleryView width={widthCurrent} height={heightCurrent} axis={1} flag={1}/>
+        }else{
+          //if aspect ratio is good for exit, then exit
+          return <FinalBox/>
+        }
+      }else{
+    
+        //if box can be split again on specified axis
+      if(axisAfter == 1){
+        //if split is going to be on height axis 
+        var heightNew = 0;
+        var widthNew = widthCurrent;
+        var remainderHeight = 0;
+        var counter = 0;
+        //calculate the new heights of the two boxes created from the split (must be within good aspect ratio region, hence while loop)
+        while((heightNew > widthNew * 1.5 || heightNew < widthNew * .8) || (remainderHeight > widthNew * 1.5 || remainderHeight < widthNew * .8)){
+          //calculate new height of first box randomly, from space available (OGheight - 2min)
+        heightNew = min + Math.floor(Math.random() * (heightCurrent - 2*min));
+        remainderHeight = heightCurrent - heightNew;
+        counter++
+        //if loop attempted more than 20 times and box is greater than maximum, let new boxes be created even if not in good aspect ratio region
+        //prevents infinite while loop
+        if(heightCurrent > max && counter > 25){
+          heightNew = min + Math.floor(Math.random() * (heightCurrent - 2*min));
+          remainderHeight = heightCurrent - heightNew;
+          break;
+        }
+        }
+        var remainderWidth = widthCurrent;
+    
+        //if box can be split again on specified axis
+      }else if(axisAfter == 0){
+        //if split is going to be on width axis 
+    
+        var heightNew = heightCurrent;
+        var widthNew = 0;
+        var remainderWidth = 0;
+        var counter = 0;
+        //calculate the new widths of the two boxes created from the split (must be within good aspect ratio region, hence while loop)
+        while((widthNew > heightNew * 1.25 || widthNew < heightNew * .66) || (remainderWidth > heightNew * 1.25 || remainderWidth < heightNew * .66)){
+          widthNew = min + Math.floor(Math.random() * (widthCurrent - 2.25*min));
+          remainderWidth = widthCurrent - widthNew;
+          counter++;
+          //if loop attempted more than 20 times and box is greater than maximum, let new boxes be created even if not in good aspect ratio region
+          //prevents infinite while loop
+          if(widthCurrent > max && counter > 25){
+            widthNew = min + Math.floor(Math.random() * (widthCurrent - 2.25*min));
+            remainderWidth = widthCurrent - widthNew;
+            break;
+          }
+        }
+        var remainderHeight = heightCurrent;
+      }
+      }
+    
+      //main return statement
+      //recursive call to create more boxes
+      //ideally swaps axis back and forth 
+      return <View style={{flexDirection: flexdir}}>
+      <View style={{width: widthCurrent, height: heightCurrent, borderWidth: 2, borderColor: '#ffffff'}}>
+      <GalleryView widthCurrent={widthNew} heightCurrent={heightNew} width={widthCurrent} height={heightCurrent} axis={[axisAfter == 0 ? 1 : 0]}/>
+      </View>
+    
+      <View style={{width: widthRemainderCurrent, height: heightRemainderCurrent, borderWidth: 2, borderColor: '#ffffff'}}>
+      <GalleryView widthCurrent={widthNew} heightCurrent={heightNew} width={widthRemainderCurrent} height={heightRemainderCurrent}axis={[axisAfter == 0 ? 1 : 0]}/>
+      </View>
+      </View>
+      }else{
+    
+        //if program decided to quit 2:1 chance of quitting if less than max dimensions
+        return <FinalBox/>
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Working algortihm, non even splits
+
+
+
+
+
+
+
+
+
+/ //Gallery Algorithm for random boxes to fill screen (semi-random ofc)
+const GalleryView = (dimension) => {
+  //maxes and mins for boxes 
+  var min = Dimensions.get('window').width/3.25;
+  var max = Dimensions.get('window').width/2;
+  //variable for determining if program will continue down recursive path (if allowed to quit) 2:1 chance of qutting
+  var keepGoing = 1;
+  var axis = dimension.axis
+  var axisAfter = 2;
+
+  //random functions
+  //choose pic (for debugging)
+  function choosePic(){
+    switch(Math.floor(Math.random()* 7)) {
+      case 0:
+        return require('../assets/uzivert.jpg');
+      case 1:
+        return require('../assets/9.jpg');
+      case 2:
+        return require('../assets/6.jpg');
+      case 3:
+        return require('../assets/10.jpg');
+      case 4:
+        return require('../assets/me1.jpg');
+      case 5:
+        return require('../assets/me2.jpg');
+      case 6:
+        return require('../assets/me3.jpg');
+    }
+  }
+  //set image variable to random pic so constant thru function
+  var image = choosePic();
+  //random function for choosing border colors
+  function chooseColor(){
+    switch(Math.floor(Math.random()* 9)) {
+      case 0:
+        //blue
+        return '#00ccf5';
+      case 1:
+        //dark blue
+        return '#3562ff';
+      case 2:
+        //teal
+        return '#38eabe';
+      case 3:
+        //pink
+        return '#fb56c0';
+      case 4:
+        //yellow
+        return '#fad833';
+      case 5: 
+        //purple
+        return '#ad37ff';
+      case 6:
+        //orange
+        return '#f3672e';
+      case 7:
+        //red
+        return '#ff4040';
+      case 8:
+        //green
+        return '#00d64f'
+    }
+  }
+
+  const FinalBox = () =>{
+    var thisColor = chooseColor();
+    return <View style={{width: dimension.width - 10, height: dimension.height - 10, top: 5, alignContent: 'center', alignItems: 'center'}}>
+    <View style={{borderRadius: 3, borderWidth: 3.75, opacity: 1, opacity: .95,
+        borderColor: thisColor, width: dimension.width - 3.5, height: dimension.height - 3.5, 
+        alignItems: 'center', position: 'absolute'}}/>
+        <View style={{borderRadius: 2, borderWidth: 2.5, opacity: 1, bottom: 1, opacity: .95,
+        borderColor: thisColor, width: dimension.width - 9, height: dimension.height - 9, top: 3, 
+        alignItems: 'center', position: 'absolute'}}/>
+        <View style={{borderRadius: 15, borderWidth: 4.5, borderColor: thisColor,
+            width: dimension.width - 3.5, height: dimension.height - 3.5, opacity: .95,
+            alignItems: 'center', position: 'absolute', backgroundColor: '#000000'}}/>
+    <Image style={{width: dimension.width - 21, height: dimension.height - 21, borderRadius: 7.5, opacity: .95,
+      resizeMode: 'cover', position: 'absolute', top: 9, alignSelf: 'center', left: 5.5}}
+      source={image}
+    />
+    </View>
+  }
+
+  //if not first run of function set axis of change to axis passed as param
+  if(axis == 1 || axis == 0){
+    axisAfter = axis;
+  }else{
+    axisAfter = 1;
+  }
+
+  //decide weather to exit or keep iterating
+  //must have good aspect ratio and be less than max size on both axis to exit recursion
+  if(dimension.width <= max && dimension.height <= max && 
+    dimension.height < dimension.width * 1.5 && dimension.height > dimension.width * .8 &&
+    dimension.width < dimension.height * 1.25 && dimension.width > dimension.height * .66){
+    //decide weather to keep going or not with random function, 2:1 chance of exiting
+    keepGoing = Math.floor(Math.random() * 3);
+  }
+
+  //if splitting box will result in box less than min exit (only if both axis will be less than min)
+  if(dimension.width/2.25 <= min && dimension.height/2 <= min){
+    return <FinalBox/>
+  }
+
+  //if decided to keep iterating
+  if(keepGoing <= 1){
+    //if splitting this axis in half will result in two boxes less than minimum on this axis (height)
+  if(axisAfter == 1 && dimension.height/2 <= min){
+    //try splitting box on other axis if aspect ratio not ready to exit recursion (ar must be good for final boxes)
+    if((dimension.height > dimension.width * 1.5 || dimension.height < dimension.width * .8) || 
+    (dimension.width > dimension.height * 1.25 || dimension.width < dimension.height * .66)){
+      return <GalleryView width={dimension.width} height={dimension.height} axis={0}/>
+    }else{
+      //if aspect ratio is good for exit, then exit
+      return <FinalBox/>
+    }
+    
+    //if splitting axis in half will result in two boxes less than minimunm on this axis (width)
+  }else if(axisAfter == 0 && dimension.width/2.25 <= min){
+    //try splitting box on other axis if aspect ratio not ready to exit recursion (ar must be good for final boxes)
+    if((dimension.height > dimension.width * 1.5 || dimension.height < dimension.width * .8) || 
+    (dimension.width > dimension.height * 1.25 || dimension.width < dimension.height * .66)){
+      return <GalleryView width={dimension.width} height={dimension.height} axis={1}/>
+    }else{
+      //if aspect ratio is good for exit, then exit
+      return <FinalBox/>
+    }
+  }else{
+
+    //if box can be split again on specified axis
+  if(axisAfter == 1){
+    //if split is going to be on height axis 
+    var heightNew = 0;
+    var widthNew = dimension.width;
+    var remainderHeight = 0;
+    var counter = 0;
+    //calculate the new heights of the two boxes created from the split (must be within good aspect ratio region, hence while loop)
+    while((heightNew > widthNew * 1.5 || heightNew < widthNew * .8) || (remainderHeight > widthNew * 1.5 || remainderHeight < widthNew * .8)){
+      //calculate new height of first box randomly, from space available (OGheight - 2min)
+    heightNew = min + Math.floor(Math.random() * (dimension.height - 2*min));
+    remainderHeight = dimension.height - heightNew;
+    counter++
+    //if loop attempted more than 20 times and box is greater than maximum, let new boxes be created even if not in good aspect ratio region
+    //prevents infinite while loop
+    if(dimension.height > max && counter > 25){
+      heightNew = min + Math.floor(Math.random() * (dimension.height - 2*min));
+      remainderHeight = dimension.height - heightNew;
+      break;
+    }
+    }
+    var remainderWidth = dimension.width;
+    var flexdir = 'column';
+
+    //if box can be split again on specified axis
+  }else if(axisAfter == 0){
+    //if split is going to be on width axis 
+
+    var heightNew = dimension.height;
+    var widthNew = 0;
+    var remainderWidth = 0;
+    var counter = 0;
+    //calculate the new widths of the two boxes created from the split (must be within good aspect ratio region, hence while loop)
+    while((widthNew > heightNew * 1.25 || widthNew < heightNew * .66) || (remainderWidth > heightNew * 1.25 || remainderWidth < heightNew * .66)){
+      widthNew = min + Math.floor(Math.random() * (dimension.width - 2.25*min));
+      remainderWidth = dimension.width - widthNew;
+      counter++;
+      //if loop attempted more than 20 times and box is greater than maximum, let new boxes be created even if not in good aspect ratio region
+      //prevents infinite while loop
+      if(dimension.width > max && counter > 25){
+        widthNew = min + Math.floor(Math.random() * (dimension.width - 2.25*min));
+        remainderWidth = dimension.width - widthNew;
+        break;
+      }
+    }
+    var remainderHeight = dimension.height;
+    var flexdir = 'row';
+  }
+  }
+
+  //main return statement
+  //recursive call to create more boxes
+  //ideally swaps axis back and forth 
+  return <View style={{flexDirection: flexdir}}>
+  <View style={{width: widthNew, height: heightNew}}>
+  <GalleryView width={widthNew} height={heightNew} axis={[axisAfter == 0 ? 1 : 0]}/>
+  </View>
+
+  <View style={{width: remainderWidth, height: remainderHeight}}>
+  <GalleryView width={remainderWidth} height={remainderHeight} axis={[axisAfter == 0 ? 1 : 0]}/>
+  </View>
+  </View>
+  }else{
+
+    //if program decided to quit 2:1 chance of quitting if less than max dimensions
+    return <FinalBox/>
+  }
+}
